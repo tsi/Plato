@@ -1,0 +1,37 @@
+/*-----------------------------------------------
+             IdeaL specific styles
+-----------------------------------------------*/
+.watcher_node {
+  float: right;
+  background-image: none !important; // Watcher module uses !important
+  @include box;
+  padding: 3px 10px;
+  transition: box-shadow 0.3s ease-out;
+
+  &:hover {
+    box-shadow: 0 0 5px #ccc;
+  }
+}
+.vud-widget-alternate {
+  height: 75px;
+  margin: 4px 20px 10px 0;
+
+  .up-active {
+    background: url('../images/thumbs.png') no-repeat -80px 0 ;
+    height: 27px;
+    margin: 5px auto;
+    width: 26px;
+    &:hover{
+      background-position:-80px 0 ;
+    }
+  }
+  .up-inactive {
+    background: url('../images/thumbs.png') no-repeat -53px 0 ;
+    height: 27px;
+    margin: 5px auto;
+    width: 26px;
+    &:hover{
+      background-position:-53px 0 ;
+    }
+  }
+}

@@ -25,27 +25,46 @@
            Imports and Definitions
 -----------------------------------------------*/
 $main-color: #1B90C9;
-$text-color: #555;
+$text-color: #777;
+
+// Grid dimensions
+$ninesixty-grid-width: [grid-width];
+$ninesixty-columns: [columns];
+$ninesixty-gutter-width: [gutter-width];
 
 @import "compass/css3";           // Uncomment to use CSS3 mixins (http://compass-style.org/reference/compass/css3/)
 @import "960/grid";               // Uncomment to use grid mixins (see Sasson's layout partials for examples)
 @import "partials/mixins";        // Uncomment to call your own mixins partial (check your /partials directory)
 
 @import "partials/forms";
-@import "partials/quicktabs";
+@import "partials/ideal";
+@import "partials/tabs";
+
+@media (max-width: [narrowest]) {
+  @import "partials/off-canvas";
+}
+
 
 /*-----------------------------------------------
           General Sitewide Styles
 -----------------------------------------------*/
 /* -----  Layout  ----- */
-#page {
-  padding-bottom: 30px;
+#main,
+.sidebar {
+  box-sizing: border-box;
+  padding: 40px 15px 30px;
+}
+// Off-canvas effect
+#main,
+#sidebar-first {
+  transition: all 0.5s linear;
 }
 
 /* -----  General Styles (Colors, Backgrounds etc.)  ----- */
 #admin-menu {
   // Prevent horizontal scroll
   margin: 0;
+  max-height: 29px;
 }
 html {
   background: #292929;
@@ -71,13 +90,22 @@ h2.block-title {
   font-size: 18px;
   margin-top: 13px;
 }
+.fieldset-wrapper {
+  font-size: .8em;
+}
 
 /* -----  Links  ----- */
 ul.links.inline {
-  font-size: .9em;
+  font-size: .8em;
 
   .first {
     padding-left: 0;
+  }
+  a {
+    color: #333;
+    &:hover {
+      color: $main-color;
+    }
   }
 }
 a,
@@ -94,17 +122,17 @@ a:active {
 
 /* -----  header  ----- */
 #header {
-  margin: 0 0 40px;
   background: url('../images/bg-header.jpg') repeat-x top;
 
   #header-inner {
     padding: 15px 0 0;
     @include grid-container;
   }
-  h1#site-name {
-    margin: 0;
+  #site-name {
+    margin: 0 15px 0 0;
     float: right;
     font-size: 3em;
+
     a {
       color: #fff;
       text-shadow: 0 2px 0 #666;
@@ -112,7 +140,7 @@ a:active {
   }
 }
 #logo {
-  margin-bottom: -50px;
+  margin: 0 0 -50px 15px;
 }
 #main-menu {
   display: block;
@@ -125,7 +153,7 @@ a:active {
     padding: 0 0.3em;
 
     &.last {
-      padding-right: 0;
+      padding-right: 15px;
     }
 
     a {
@@ -148,7 +176,6 @@ a:active {
   }
 }
 #secondary-menu {
-  padding: 0 20px;
   margin: 0;
   background-color: #2c2c2c;
   border-bottom: 1px solid lighten($main-color, 40%);
@@ -156,7 +183,7 @@ a:active {
   @include linear-gradient(color-stops(#333, #222), top);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.1);
 
-  ul#secondary-menu-links {
+  #secondary-menu-links {
     @include grid-container;
     display: block;
 
@@ -189,13 +216,61 @@ a:active {
 #footer {
   color: #fff;
   background: #292929;
-  min-height: 1em;
+  padding-bottom: 1em;
+  font-size: .8em;
+  text-shadow: -1px -1px 0 #000;
 
   #footer-inner {
     @include grid-container;
   }
-}
+  .block {
+    vertical-align: top;
+    padding: 15px;
 
+    &.block-menu {
+      display: inline-block;
+    }
+
+    h2.block-title {
+      margin-bottom: 3px;
+    }
+
+    ul.menu {
+      padding: 0;
+      margin-top: 3px;
+
+      li {
+        margin: 0;
+        list-style: none;
+      }
+      a {
+        color: #aaa;
+      }
+    }
+  }
+}
+/* -----  Tables  ----- */
+table {
+  width: 100%;
+
+  thead {
+    background: #777;
+    @include bevel-in(.1);
+
+    th {
+      padding: 4px 10px 2px;
+      text-align: center;
+      font-weight: normal;
+      text-shadow: -1px -1px 0 #333;
+      color: #fff;
+      font-size: .9em;
+    }
+    a {
+      color: #fff;
+      font-style: italic;
+    }
+  }
+}
 
 /*-----------------------------------------------
                  Front Page
@@ -229,40 +304,32 @@ a:active {
 }
 
 /*-----------------------------------------------
-             IdeaL specific styles
-  // TODO: this will go into a separate mixin
+                    Icons
+  // Faenza icon theme - http://code.google.com/p/faenza-icon-theme/
 -----------------------------------------------*/
-.watcher_node {
-  float: right;
-  background-image: none !important; // Watcher module uses !important
-  @include box;
-  padding: 3px 10px;
-  transition: box-shadow 0.3s ease-out;
-
-  &:hover {
-    box-shadow: 0 0 5px #ccc;
-  }
+@mixin icon($img, $position: left) {
+  background: #{$img} no-repeat #{$position} center transparent;
+  padding-#{$position}: 20px;
 }
-.vud-widget-alternate {
-  height: 75px;
-  margin: 4px 20px 10px 0;
 
-  .up-active {
-    background: url('../images/thumbs.png') no-repeat -80px 0 ;
-    height: 27px;
-    margin: 5px auto;
-    width: 26px;
-    &:hover{
-      background-position:-80px 0 ;
-    }
-  }
-  .up-inactive {
-    background: url('../images/thumbs.png') no-repeat -53px 0 ;
-    height: 27px;
-    margin: 5px auto;
-    width: 26px;
-    &:hover{
-      background-position:-53px 0 ;
-    }
-  }
+.flag-wrapper {
+  @include icon(image-url('../images/icons/flag.png'));
 }
+li.comment-comments a,
+li.comment-add a,
+li.comment-reply a {
+  @include icon(image-url('../images/icons/comment.png'));
+}
+li.comment-edit a {
+  @include icon(image-url('../images/icons/comment-edit.png'));
+}
+li.comment-delete a {
+  @include icon(image-url('../images/icons/comment-del.png'));
+}
+li.forward_link a {
+  @include icon(image-url('../images/icons/email.png'));
+}
+
+/*-----------------------------------------------
+                  Mobile
+-----------------------------------------------*/

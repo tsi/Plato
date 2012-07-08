@@ -30,6 +30,40 @@
     }
   };
 
+  Drupal.behaviors.offCanvas = {
+    attach: function (context, settings) {
+
+      var headWidth = $('head').width();
+
+      $(window).resize(function () {
+        if ($('head').width() != headWidth) {
+          headWidth = $('head').width();
+          triggerOffCanvas(headWidth);
+          log(headWidth);
+        }
+      });
+
+      var triggerOffCanvas = function(headWidth) {
+
+        if (headWidth > 2) {
+          $('ul#secondary-menu-links').once().prepend('<li class="off-canvas menu-item hidden"><a class="off-canvas" href="#">=</a></li>');
+          $('body').addClass('off-canvas');
+          $('li.off-canvas').removeClass('hidden');
+        } else {
+          $('body').removeClass('off-canvas');
+          $('li.off-canvas').addClass('hidden');
+        }
+      };
+
+      triggerOffCanvas(headWidth);
+
+      $('li.off-canvas a').live('click', function(e) {
+        e.preventDefault();
+        $('body').toggleClass('on-canvas');
+      });
+    }
+  };
+
   // DUPLICATE AND UNCOMMENT
   // Drupal.behaviors.behaviorName = {
   //   attach: function (context, settings) {

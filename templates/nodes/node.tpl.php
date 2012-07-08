@@ -77,7 +77,7 @@
  */
 ?>
 <article id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
-    
+
   <?php if ($user_picture || !$page || $display_submitted): ?>
     <header>
       <?php print render($content['field_category']); ?>
@@ -91,14 +91,14 @@
       <?php print render($title_suffix); ?>
 
       <?php if ($display_submitted): ?>
-        
+
       <p class="submitted">
         <?php print $submitted; ?>
         <time pubdate datetime="<?php print $submitted_pubdate; ?>">
         <?php print $submitted_date; ?>
         </time>
       </p>
-        
+
       <?php endif; ?>
     </header>
   <?php endif; ?>
@@ -111,11 +111,9 @@
       hide($content['field_tags']);
       hide($content['field_in_action']);
       print render($content);
+      print render($content['links']['node']);
+      print render($content['field_in_action']);
   ?>
-  <div class="read">
-    <?php print render($content['links']['node']); ?> 
-  </div>
-  <?php  print render($content['field_in_action']); ?>   
   </div><!-- /.content -->
 
   <?php if (!empty($content['field_tags']) || !empty($content['links'])): ?>
