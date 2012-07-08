@@ -91,7 +91,7 @@ settings[sasson_overlay] = 0
 settings[sasson_overlay_url] = ''
 settings[sasson_overlay_opacity] = '0.5'
 
-settings[sasson_font] = ''
+settings[sasson_font] = 'Handlee'
 settings[sasson_font_fallback] = 'sans-serif'
 settings[sasson_font_selectors] = 'body'
 
