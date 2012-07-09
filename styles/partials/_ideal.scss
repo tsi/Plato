@@ -36,7 +36,7 @@
   .up-inactive {
     @include sprite-smart-thumb-up-en;
     margin: 5px auto;
-    // padding-bottom: 4px;
+    opacity: .9;
     transition: opacity 0.3s;
     &:hover{
       @include sprite-smart-thumb-up-en;
