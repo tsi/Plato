@@ -18,11 +18,20 @@ head {
   #main {
     @include fluid-grid($ninesixty-columns - $sidebar-first);
     @include fluid-push($sidebar-first);
+    padding: 30px 10px 30px;
   }
   #sidebar-first {
     @include fluid-pull($ninesixty-columns - $sidebar-first);
+    padding: 30px 10px 30px;
   }
   #sidebar-second {
     @include fluid-grid($ninesixty-columns);
+    padding: 30px 10px 30px;
   }
+}
+
+#main,
+#sidebar-first,
+#sidebar-second {
+  padding: 30px 10px 30px;
 }

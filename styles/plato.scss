@@ -59,7 +59,7 @@ $ninesixty-gutter-width: [gutter-width];
 #main,
 .sidebar {
   box-sizing: border-box;
-  padding: 30px 15px 30px;
+  padding: 30px 20px 30px;
 }
 // Off-canvas effect
 #main,
@@ -140,7 +140,7 @@ a:active {
     @include grid-container;
   }
   #site-name {
-    margin: 0 15px 0 0;
+    margin: 0 20px 0 0;
     float: right;
     font-size: 3em;
 
@@ -151,7 +151,7 @@ a:active {
   }
 }
 #logo {
-  margin: 0 0 -50px 15px;
+  margin: 0 0 -50px 20px;
 }
 #main-menu {
   display: block;
@@ -227,9 +227,15 @@ a:active {
 
 /* -----  Sidebars  ----- */
 .sidebar {
+  .block {
+    @include box;
+    padding: 0 15px 15px;
+    margin-bottom: 1em;
+    background: #fcfcfc;
+  }
   ul.menu,
   ul.category-menu {
-    margin: .3em 0 1.5em;
+    margin: .3em 0 .3em;
     padding: 0 0 0 10px;
     li {
       margin: 0 0 0 0.5em;
