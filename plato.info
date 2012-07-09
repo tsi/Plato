@@ -77,7 +77,7 @@ settings[sasson_sass] = 1
 settings[sasson_devel] = 1
 
 settings[sasson_cssreset] = 'normalize'
-settings[sasson_formalize] = 1
+settings[sasson_formalize] = 0
 
 settings[sasson_force_ie] = 1
 settings[sasson_html5shiv] = 1
