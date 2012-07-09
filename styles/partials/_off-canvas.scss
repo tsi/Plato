@@ -15,11 +15,11 @@ body.on-canvas #page {
   #sidebar-first {
     left: 0%;
     width: 100% / $ninesixty-columns * $sidebar-width;
-    box-shadow: inset 0px 10px 10px -5px #ccc;
+    box-shadow: inset 0px 10px 10px -5px #ddd;
   }
   #main {
     @include fluid-push($sidebar-width);
-    box-shadow: -10px 0px 10px -5px #ccc;
+    box-shadow: -10px 0px 10px -5px #ddd;
   }
 }
 

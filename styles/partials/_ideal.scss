@@ -2,7 +2,7 @@
              IdeaL specific styles
 -----------------------------------------------*/
 
-@import "partials/mixins";
+@import "sprites/smart";
 
 .watcher_node {
   float: right;
@@ -16,25 +16,41 @@
   }
 }
 .vud-widget-alternate {
-  height: 75px;
-  margin: 4px 20px 10px 0;
+  height: auto;
+  margin: 4px 20px 0 0;
 
+  .alternate-votes-display {
+    border-radius: 4px;
+    background: #fff;
+  }
   .up-active {
-    background: image-url('thumbs.png') no-repeat -80px 0 ;
-    height: 27px;
+    @include sprite-smart-thumb-up-dis;
     margin: 5px auto;
-    width: 26px;
-    &:hover{
-      background-position:-80px 0 ;
+    opacity: .9;
+    transition: opacity 0.3s;
+    &:hover {
+      @include sprite-smart-thumb-up-dis;
+      opacity: 1;
     }
   }
   .up-inactive {
-    background: image-url('thumbs.png') no-repeat -53px 0 ;
-    height: 27px;
+    @include sprite-smart-thumb-up-en;
     margin: 5px auto;
-    width: 26px;
+    // padding-bottom: 4px;
+    transition: opacity 0.3s;
     &:hover{
-      background-position:-53px 0 ;
+      @include sprite-smart-thumb-up-en;
+      opacity: 1;
+    }
+  }
+  .reset-active {
+    text-align: center;
+    margin-top: -3px;
+    // padding-bottom: 2px;
+    font-size: .75em;
+    color: #222;
+    &:hover {
+      text-decoration: underline;
     }
   }
 }

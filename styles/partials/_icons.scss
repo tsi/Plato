@@ -2,31 +2,37 @@
                     Icons
   // Faenza icon theme - http://code.google.com/p/faenza-icon-theme/
 -----------------------------------------------*/
-@mixin icon($img, $position: left) {
-  background: #{$img} no-repeat #{$position} center transparent;
-  padding-#{$position}: 20px;
-}
+
+@import "sprites/vert";
+
 
 .flag-wrapper {
-  @include icon(image-url('icons/flag.png'));
+  @include sprite-vert-flag(false, false);
+  padding-left: 20px;
 }
 li.comment-comments a,
 li.comment-add a,
 li.comment-reply a {
-  @include icon(image-url('icons/comment.png'));
+  @include sprite-vert-comment(false, false);
+  padding-left: 20px;
 }
 li.node-readmore a {
-  @include icon(image-url('icons/next.png'));
+  @include sprite-vert-next(false, false);
+  padding-left: 20px;
 }
 li.comment-edit a {
-  @include icon(image-url('icons/comment-edit.png'));
+  @include sprite-vert-comment-edit(false, false);
+  padding-left: 20px;
 }
 li.comment-delete a {
-  @include icon(image-url('icons/comment-del.png'));
+  @include sprite-vert-comment-del(false, false);
+  padding-left: 20px;
 }
 li.forward_link a {
-  @include icon(image-url('icons/email.png'));
+  @include sprite-vert-email(false, false);
+  padding-left: 20px;
 }
 .field-type-taxonomy-term-reference ul.links {
-  @include icon(image-url('icons/tag.png'));
+  @include sprite-vert-tag(false, false);
+  padding-left: 20px;
 }
