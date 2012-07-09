@@ -46,7 +46,7 @@
       var triggerOffCanvas = function(headWidth) {
 
         if (headWidth > 2) {
-          $('ul#secondary-menu-links').once().prepend('<li class="off-canvas menu-item hidden"><a class="off-canvas" href="#">=</a></li>');
+          $('ul#secondary-menu-links').once().prepend('<li class="off-canvas menu-item hidden"><a class="off-canvas" href="#">≡</a></li>');
           $('body').addClass('off-canvas');
           $('li.off-canvas').removeClass('hidden');
         } else {

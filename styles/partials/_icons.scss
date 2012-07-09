@@ -1,0 +1,32 @@
+/*-----------------------------------------------
+                    Icons
+  // Faenza icon theme - http://code.google.com/p/faenza-icon-theme/
+-----------------------------------------------*/
+@mixin icon($img, $position: left) {
+  background: #{$img} no-repeat #{$position} center transparent;
+  padding-#{$position}: 20px;
+}
+
+.flag-wrapper {
+  @include icon(image-url('icons/flag.png'));
+}
+li.comment-comments a,
+li.comment-add a,
+li.comment-reply a {
+  @include icon(image-url('icons/comment.png'));
+}
+li.node-readmore a {
+  @include icon(image-url('icons/next.png'));
+}
+li.comment-edit a {
+  @include icon(image-url('icons/comment-edit.png'));
+}
+li.comment-delete a {
+  @include icon(image-url('icons/comment-del.png'));
+}
+li.forward_link a {
+  @include icon(image-url('icons/email.png'));
+}
+.field-type-taxonomy-term-reference ul.links {
+  @include icon(image-url('icons/tag.png'));
+}

@@ -25,7 +25,7 @@
            Imports and Definitions
 -----------------------------------------------*/
 $main-color: #1B90C9;
-$text-color: #777;
+$text-color: #666;
 
 // Grid dimensions
 $ninesixty-grid-width: [grid-width];
@@ -39,6 +39,7 @@ $ninesixty-gutter-width: [gutter-width];
 @import "partials/forms";
 @import "partials/ideal";
 @import "partials/tabs";
+@import "partials/icons";
 
 @media (max-width: [narrowest]) {
   @import "partials/off-canvas";
@@ -49,10 +50,16 @@ $ninesixty-gutter-width: [gutter-width];
           General Sitewide Styles
 -----------------------------------------------*/
 /* -----  Layout  ----- */
+#page,
+#header-inner,
+#secondary-menu-links,
+#footer-inner {
+  max-width: 100%;
+}
 #main,
 .sidebar {
   box-sizing: border-box;
-  padding: 40px 15px 30px;
+  padding: 30px 15px 30px;
 }
 // Off-canvas effect
 #main,
@@ -72,12 +79,14 @@ html {
 body {
   color: $text-color;
   background: #fff;
+  font: 16px/1.44 Georgia, Times, "Times New Roman", serif;
 }
 p {
   margin: .2em 0;
 }
 h1, h2, h3, h4, h5, h6 {
   text-rendering: optimizelegibility;
+  font-weight: normal;
 }
 h1 {
   color: $main-color;
@@ -88,7 +97,7 @@ h1 {
 }
 h2.block-title {
   font-size: 18px;
-  margin-top: 13px;
+  margin: 16px 0 3px;
 }
 .fieldset-wrapper {
   font-size: .8em;
@@ -122,7 +131,9 @@ a:active {
 
 /* -----  header  ----- */
 #header {
-  background: url('../images/bg-header.jpg') repeat-x top;
+  // background: url('../images/-bg-header.jpg') repeat-x bottom;
+  background: url('../images/bg-header.png') repeat-x bottom lighten($main-color, 25%);
+  box-shadow: inset 0px -15px 35px -10px rgba(0,0,0,.3);
 
   #header-inner {
     padding: 15px 0 0;
@@ -158,8 +169,8 @@ a:active {
 
     a {
       display: block;
-      background: #fff;
-      background: rgba(255, 255, 255, 0.8);
+      background-color: lighten($main-color, 35%);
+      @include linear-gradient(color-stops(rgba(255, 255, 255, .6), rgba(255, 255, 255, 1)), top);
       padding: 3px 20px 1px;
       border: 1px solid lighten($main-color, 5%);
       border-bottom: none;
@@ -167,10 +178,13 @@ a:active {
       border-radius: 6px 6px 0 0;
       &:hover,
       &.active {
-        background: #fff;
+        background-color: #fff;
       }
       &.active {
         color: #555;
+      }
+      .lte-ie9 & {
+        background-color: lighten($main-color, 50%);
       }
     }
   }
@@ -189,6 +203,7 @@ a:active {
 
     li {
       display: inline-block;
+      padding: 0 1%;
 
       a {
         display: block;
@@ -211,6 +226,17 @@ a:active {
 }
 
 /* -----  Sidebars  ----- */
+.sidebar {
+  ul.menu,
+  ul.category-menu {
+    margin: .3em 0 1.5em;
+    padding: 0 0 0 10px;
+    li {
+      margin: 0 0 0 0.5em;
+      font-size: .85em;
+    }
+  }
+}
 
 /* -----  Footer  ----- */
 #footer {
@@ -294,42 +320,71 @@ table {
     margin: 15px 0;
     padding: 10px 0 0;
   }
+  .field-type-taxonomy-term-reference {
+    ul.links {
+      margin: .2em 0;
+    }
+    li {
+      list-style: none;
+      display: inline;
+      padding: 0 5px;
+
+      a {
+        font-size: .8em;
+        color: #333;
+        &:hover {
+          color: $main-color;
+        }
+      }
+    }
+  }
 }
+
+/* -----  Comments  ----- */
 .comment {
   @include box;
+  margin-bottom: 1em;
 
   h3 {
     margin: 0 0 10px;
   }
+  .new {
+    float: right;
+    background: $main-color;
+    color: #fff;
+    border-radius: 4px;
+    font-size: .75em;
+    padding: 0 3px;
+  }
 }
+/* -----  Comment form  ----- */
+form.comment-form {
+  margin-top: 2em;
 
-/*-----------------------------------------------
-                    Icons
-  // Faenza icon theme - http://code.google.com/p/faenza-icon-theme/
------------------------------------------------*/
-@mixin icon($img, $position: left) {
-  background: #{$img} no-repeat #{$position} center transparent;
-  padding-#{$position}: 20px;
-}
+  .form-type-item,
+  .form-item-name,
+  .form-item-subject {
+    letter-spacing: -4px;
 
-.flag-wrapper {
-  @include icon(image-url('../images/icons/flag.png'));
+    > * {
+      letter-spacing: normal;
+    }
+    label {
+      display: inline-block;
+      font-weight: normal;
+      font-size: .85em;
+      width: 20%;
+    }
+    input.form-text {
+      display: inline-block;
+      width: 80%;
+    }
+  }
+  .fieldset-wrapper select {
+    width: auto;
+  }
+  .filter-help {
+    float: right;
+    padding: 0;
+  }
 }
-li.comment-comments a,
-li.comment-add a,
-li.comment-reply a {
-  @include icon(image-url('../images/icons/comment.png'));
-}
-li.comment-edit a {
-  @include icon(image-url('../images/icons/comment-edit.png'));
-}
-li.comment-delete a {
-  @include icon(image-url('../images/icons/comment-del.png'));
-}
-li.forward_link a {
-  @include icon(image-url('../images/icons/email.png'));
-}
-
-/*-----------------------------------------------
-                  Mobile
------------------------------------------------*/

@@ -22,3 +22,12 @@ body.on-canvas #page {
     box-shadow: -10px 0px 10px -5px #ccc;
   }
 }
+
+ul li.off-canvas {
+  font-size: 1.3em;
+  font-weight: bold;
+
+  a {
+    color: #eee;
+  }
+}

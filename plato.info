@@ -81,7 +81,7 @@ settings[sasson_formalize] = 1
 
 settings[sasson_force_ie] = 1
 settings[sasson_html5shiv] = 1
-settings[sasson_ie_comments] = 0
+settings[sasson_ie_comments] = 1
 settings[sasson_prompt_cf] = 'IE 7'
 
 settings[sasson_clear_registry] = 0
@@ -92,8 +92,8 @@ settings[sasson_overlay] = 0
 settings[sasson_overlay_url] = ''
 settings[sasson_overlay_opacity] = '0.5'
 
-settings[sasson_font] = 'Handlee'
-settings[sasson_font_fallback] = 'sans-serif'
+settings[sasson_font] = 'Marmelad'
+settings[sasson_font_fallback] = 'Georgia, Times, "Times New Roman", serif'
 settings[sasson_font_selectors] = 'body'
 
 settings[sasson_breadcrumb_hideonlyfront] = 1

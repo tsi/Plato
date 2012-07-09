@@ -1,6 +1,9 @@
 /*-----------------------------------------------
              IdeaL specific styles
 -----------------------------------------------*/
+
+@import "partials/mixins";
+
 .watcher_node {
   float: right;
   background-image: none !important; // Watcher module uses !important
@@ -17,7 +20,7 @@
   margin: 4px 20px 10px 0;
 
   .up-active {
-    background: url('../images/thumbs.png') no-repeat -80px 0 ;
+    background: image-url('thumbs.png') no-repeat -80px 0 ;
     height: 27px;
     margin: 5px auto;
     width: 26px;
@@ -26,7 +29,7 @@
     }
   }
   .up-inactive {
-    background: url('../images/thumbs.png') no-repeat -53px 0 ;
+    background: image-url('thumbs.png') no-repeat -53px 0 ;
     height: 27px;
     margin: 5px auto;
     width: 26px;

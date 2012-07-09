@@ -76,13 +76,11 @@
  * @see template_process()
  */
 ?>
-<article id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
+<article id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?>"<?php print $attributes; ?>>
 
   <?php if ($user_picture || !$page || $display_submitted): ?>
     <header>
-      <?php print render($content['field_category']); ?>
       <?php print $user_picture; ?>
-      <?php print render($content['watcher']); ?>
 
       <?php print render($title_prefix); ?>
       <?php if (!$page): ?>
@@ -90,6 +88,7 @@
       <?php endif; ?>
       <?php print render($title_suffix); ?>
 
+      <?php print render($content['watcher']); ?>
       <?php if ($display_submitted): ?>
 
       <p class="submitted">
@@ -109,11 +108,8 @@
       hide($content['comments']);
       hide($content['links']);
       hide($content['field_tags']);
-      hide($content['field_in_action']);
       print render($content);
-      print render($content['links']['node']);
-      print render($content['field_in_action']);
-  ?>
+    ?>
   </div><!-- /.content -->
 
   <?php if (!empty($content['field_tags']) || !empty($content['links'])): ?>
