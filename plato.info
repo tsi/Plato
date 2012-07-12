@@ -19,7 +19,6 @@ base theme = sasson
 ; styles[styles/filename.scss][options][recompile] = true
 
 styles[styles/plato.scss][options][media] = all
-styles[styles/plato.scss][options][recompile] = true
 
 
 ; Theme Script Files ------------------------------------------------------
