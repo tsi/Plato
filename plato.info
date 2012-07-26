@@ -93,7 +93,7 @@ settings[sasson_overlay_opacity] = '0.5'
 
 settings[sasson_font] = 'Marmelad'
 settings[sasson_font_fallback] = 'Georgia, Times, "Times New Roman", serif'
-settings[sasson_font_selectors] = 'body'
+settings[sasson_font_selectors] = 'h1, h2, h3'
 
 settings[sasson_breadcrumb_hideonlyfront] = 1
 settings[sasson_breadcrumb_showtitle] = 0
